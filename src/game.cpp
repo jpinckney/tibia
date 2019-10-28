@@ -4522,7 +4522,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (realDamage >= targetHealth) {
 			target->onDeath();
-
 		}
 	}
 
