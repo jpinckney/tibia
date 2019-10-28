@@ -371,3 +371,8 @@ config.lua
 tfs.exe
 
 data/world/**
+tfs
+build/*
+
+# SFTP for Sublime
+sftp-config.json

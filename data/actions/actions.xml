@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-	
+
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />
@@ -28,7 +28,7 @@
 
 	<!-- Bastion Forge -->
 	<action itemid="32421" script="falcons/falcon_shield.lua" />
-	
+
 	<!-- Behemoth Quest -->
 	<action uniqueid="2007" script="quests/behemoth/lever.lua" />
 
@@ -776,7 +776,7 @@
 
 	<!-- The Secret Library Quest -->
 	<action actionid="64019" script="quests/the secret library/asuraMirror.lua" />
-	
+
 	<!-- The Tainted Soul Quest -->
 	<action itemid="2800" script="quests/the tainted soul/star herb.lua" />
 	<!--<action itemid="7494" script="quests/others/holyWater.lua" /> -->
@@ -1119,9 +1119,9 @@
 	<action itemid="8473" script="others/consumables/potions.lua" />
 	<action itemid="8474" script="others/consumables/potions.lua" />
 	<action itemid="8704" script="others/consumables/potions.lua" />
-	<action itemid="7439" script="others/consumables/potionsStrengThening.lua" />
-	<action itemid="7440" script="others/consumables/potionsStrengThening.lua" />
-	<action itemid="7443" script="others/consumables/potionsStrengThening.lua" />
+	<action itemid="7439" script="others/consumables/potions_strengthening.lua" />
+	<action itemid="7440" script="others/consumables/potions_strengthening.lua" />
+	<action itemid="7443" script="others/consumables/potions_strengthening.lua" />
 
 	<!-- Market -->
 	<action itemid="14405" function="market" />

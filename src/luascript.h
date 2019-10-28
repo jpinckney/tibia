@@ -1409,6 +1409,7 @@ class LuaScriptInterface
 		static int luaMonsterSpellSetCombatEffect(lua_State* L);
 
 		// Party
+		static int luaPartyCreate(lua_State* L);
 		static int luaPartyDisband(lua_State* L);
 
 		static int luaPartyGetLeader(lua_State* L);

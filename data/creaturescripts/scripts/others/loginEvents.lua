@@ -50,9 +50,10 @@ function onLogin(player)
 	"deeplingBosses",
 	"theGreatDragonHuntKill",
 	"bonusPreyLootKill",
-	"bossesMissionCults"
+	"bossesMissionCults",
+	"AutoLoot"
 }
-	
+
 	for i = 1, #events do
 		player:registerEvent(events[i])
 	end

@@ -1977,6 +1977,10 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::REMOVE_POTION_CHARGES)
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
 	registerEnumIn("configKeys", ConfigManager::QUEST_LUA)
+	registerEnumIn("configKeys", ConfigManager::NOTIFY_SERVER_SAVE)
+	registerEnumIn("configKeys", ConfigManager::CLEAN_MAP_AT_SERVER_SAVE)
+	registerEnumIn("configKeys", ConfigManager::CLOSE_AT_SERVER_SAVE)
+	registerEnumIn("configKeys", ConfigManager::SHUTDOWN_AT_SERVER_SAVE)
 
 	registerEnumIn("configKeys", ConfigManager::ALLOW_DUAL_WIELDING)
 	registerEnumIn("configKeys", ConfigManager::DUAL_WIELDING_DAMAGE_RATE)
@@ -2963,7 +2967,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterSpell", "setCombatEffect", LuaScriptInterface::luaMonsterSpellSetCombatEffect);
 
 	// Party
-	registerClass("Party", "", nullptr);
+	registerClass("Party", "", LuaScriptInterface::luaPartyCreate);
 	registerMetaMethod("Party", "__eq", LuaScriptInterface::luaUserdataCompare);
 
 	registerMethod("Party", "disband", LuaScriptInterface::luaPartyDisband);
@@ -15029,6 +15033,29 @@ int LuaScriptInterface::luaMonsterSpellSetCombatEffect(lua_State* L)
 }
 
 // Party
+int32_t LuaScriptInterface::luaPartyCreate(lua_State* L)
+{
+	// Party(userdata)
+	Player* player = getUserdata<Player>(L, 2);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Party* party = player->getParty();
+	if (!party) {
+		party = new Party(player);
+		g_game.updatePlayerShield(player);
+		player->sendCreatureSkull(player);
+		pushUserdata<Party>(L, party);
+		setMetatable(L, -1, "Party");
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPartyDisband(lua_State* L)
 {
 	// party:disband()
