@@ -12,6 +12,9 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local timeToNextAttempt = 14400
+	local relationPerTask = 10
+
 	local player = Player(cid)
 
 	if(msgcontains(msg, "mission")) then
@@ -37,11 +40,11 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionCrystalKeeper) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount) >= 5 then -- can report missions
 					player:removeItem(18219, 1)
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 1)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionCrystalKeeper, 0)
-					player:setStorageValue(Storage.BigfootBurden.CrystalKeeperTimout, os.time() + 20 * 60 * 60)
+					player:setStorageValue(Storage.BigfootBurden.CrystalKeeperTimout, os.time() + timeToNextAttempt)
 					player:setStorageValue(Storage.BigfootBurden.RepairedCrystalCount, -1)
 					player:addAchievement('Crystal Keeper')
 					player:checkGnomeRank()
@@ -74,13 +77,13 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.ExtractedCount) >= 7 then -- can report missions
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:removeItem(18213, 1)
 					player:addItem(18422, 1)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark, 0)
 					player:setStorageValue(Storage.BigfootBurden.ExtractedCount, -1)
-					player:setStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout, os.time() + 20 * 60 * 60)
+					player:setStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('Call Me Sparky')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
@@ -110,12 +113,12 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionExterminators) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.ExterminatedCount) >= 10 then -- can report missions
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 1)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionExterminators, 0)
 					player:setStorageValue(Storage.BigfootBurden.ExterminatedCount, -1)
-					player:setStorageValue(Storage.BigfootBurden.ExterminatorsTimeout, os.time() + 20 * 60 * 60)
+					player:setStorageValue(Storage.BigfootBurden.ExterminatorsTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('One Foot Vs. Many')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
@@ -152,12 +155,12 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMushroomDigger) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.MushroomCount) >= 3 then -- can report missions
 					player:removeItem(18339, 1)
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 1)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionMushroomDigger, 0)
 					player:setStorageValue(Storage.BigfootBurden.MushroomCount, -1)
-					player:setStorageValue(Storage.BigfootBurden.MushroomDiggerTimeout, os.time() + 20 * 60 * 60)
+					player:setStorageValue(Storage.BigfootBurden.MushroomDiggerTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('The Picky Pig')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)

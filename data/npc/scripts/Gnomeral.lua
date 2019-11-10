@@ -12,7 +12,11 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local timeToNextAttempt = 14400
+	local relationPerTask = 20
+
 	local player = Player(cid)
+
 	if not player then
 		return false
 	end
@@ -43,13 +47,13 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMatchmaker) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.MatchmakerStatus) == 1 then -- can report missions
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionMatchmaker, 0)
 					player:setStorageValue(Storage.BigfootBurden.MatchmakerStatus, -1)
 					player:setStorageValue(Storage.BigfootBurden.MatchmakerIdNeeded, -1)
-					player:setStorageValue(Storage.BigfootBurden.MatchmakerTimeout, os.time() + 72000)
+					player:setStorageValue(Storage.BigfootBurden.MatchmakerTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('Crystals in Love')
 					player:checkGnomeRank()
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
@@ -86,12 +90,12 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionTinkersBell) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.GolemCount) >= 4 then -- can report missions
 					player:removeItem(18343, 1)
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionTinkersBell, 0)
 					player:setStorageValue(Storage.BigfootBurden.GolemCount, -1)
-					player:setStorageValue(Storage.BigfootBurden.TinkerBellTimeout, os.time() + 72000)
+					player:setStorageValue(Storage.BigfootBurden.TinkerBellTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('Substitute Tinker')
 					player:checkGnomeRank()
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
@@ -128,12 +132,12 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionSporeGathering) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.SporeCount) == 4 then -- can report missions
 					player:removeItem(18332, 1)
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionSporeGathering, 0)
 					player:setStorageValue(Storage.BigfootBurden.SporeCount, -1)
-					player:setStorageValue(Storage.BigfootBurden.SporeGatheringTimeout, os.time() + 72000)
+					player:setStorageValue(Storage.BigfootBurden.SporeGatheringTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('Spore Hunter')
 					player:checkGnomeRank()
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
@@ -168,12 +172,12 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.GrindstoneStatus) == 1 then -- can report missions
 					player:removeItem(18337, 1)
-					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
+					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + relationPerTask)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt, 0)
 					player:setStorageValue(Storage.BigfootBurden.GrindstoneStatus, -1)
-					player:setStorageValue(Storage.BigfootBurden.GrindstoneTimeout, os.time() + 72000)
+					player:setStorageValue(Storage.BigfootBurden.GrindstoneTimeout, os.time() + timeToNextAttempt)
 					player:addAchievement('Grinding Again')
 					player:checkGnomeRank()
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
