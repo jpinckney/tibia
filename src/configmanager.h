@@ -52,10 +52,10 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
-			NOTIFY_SERVER_SAVE,
-			CLEAN_MAP_AT_SERVER_SAVE,
-			CLOSE_AT_SERVER_SAVE,
-			SHUTDOWN_AT_SERVER_SAVE,
+			SERVER_SAVE_NOTIFY_MESSAGE,
+			SERVER_SAVE_CLEAN_MAP,
+			SERVER_SAVE_CLOSE,
+			SERVER_SAVE_SHUTDOWN,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -130,6 +130,7 @@ class ConfigManager
 			RED_SKULL_DURATION,
 			BLACK_SKULL_DURATION,
 			ORANGE_SKULL_DURATION,
+			SERVER_SAVE_NOTIFY_DURATION,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};
@@ -146,6 +147,7 @@ class ConfigManager
 		bool reload();
 
 		const std::string& getString(string_config_t what) const;
+		int16_t getShortNumber(integer_config_t what) const;
 		int32_t getNumber(integer_config_t what) const;
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;

@@ -498,11 +498,25 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 		return;
 	}
 
-	if ((damage.primary.value < 0 || damage.secondary.value < 0) && caster) {
-		Player* targetPlayer = target->getPlayer();
-		if (targetPlayer && caster->getPlayer() && targetPlayer->getSkull() != SKULL_BLACK) {
+	if ((damage.primary.value < 0 || damage.secondary.value < 0)) {
+		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
+			// Critical damage
+			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			if (chance != 0 && uniform_random(1, 100) <= chance) {
+				damage.critical = true;
+				damage.primary.value += ((damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE)) / 100);
+				damage.secondary.value += ((damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE)) / 100);
+			}
 			damage.primary.value /= 2;
 			damage.secondary.value /= 2;
+		}
+		else if (caster && caster->getPlayer()) {
+			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			if (chance != 0 && uniform_random(1, 100) <= chance) {
+				damage.critical = true;
+				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE)) / 100;
+				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE)) / 100;
+			}
 		}
 	}
 
