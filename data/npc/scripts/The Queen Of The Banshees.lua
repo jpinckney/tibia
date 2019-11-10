@@ -115,14 +115,14 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 11 then
 			if player:removeItem(5922, 50) then
-				npcHandler:say("Thank you! You have no idea what that means to me. As promised,here is your reward... as a follower of Zathroth, I hope that you will like this accessory.", cid)
+				npcHandler:say("Thank you! You have no idea what that means to me. As promised, here is your reward... as a follower of Zathroth, I hope that you will like this accessory.", cid)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 7)
 				player:addOutfitAddon(145, 1)
 				player:addOutfitAddon(149, 1)
 				player:addAchievement('Warlock')
 				npcHandler.topic[cid] = 0
 			else
-				npcHandler:say("You need 50 holy orchid.", cid)
+				npcHandler:say("You need 50 holy orchids.", cid)
 				npcHandler.topic[cid] = 0
 			end
 		end
