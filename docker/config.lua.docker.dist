@@ -23,7 +23,7 @@ orangeSkullDuration = 7
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: MaxPacketsPerSeconds if you change you will be subject to bugs by WPE, keep the default value of 25
-ip = "127.0.0.1"
+ip = "192.168.15.149"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
@@ -88,10 +88,10 @@ checkExpiredMarketOffersEachMinutes = 60
 maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
-mysqlHost = "127.0.0.1"
-mysqlUser = "root"
-mysqlPass = ""
-mysqlDatabase = ""
+mysqlHost = "otdb"
+mysqlUser = "otserver"
+mysqlPass = "otserver"
+mysqlDatabase = "otserver"
 mysqlPort = 3306
 mysqlSock = ""
 
@@ -108,23 +108,6 @@ allowWalkthrough = true
 coinPacketSize = 25
 coinImagesURL = "http://localhost/images/store/"
 classicAttackSpeed = false
-showScriptsLogInConsole = false
-
--- Dual wielding
--- NOTE: the rates are percentages of the single-wielding values, for
--- example, if dualWieldingSpeedFactor is 200 then dual wielding attack will
--- be twice as fast. It makes no sense to set dualWieldingSpeedRate under 100.
-allowDualWielding = false
-dualWieldingSpeedRate = 200
-dualWieldingDamageRate = 70
-
--- Server Save
--- NOTE: serverSaveNotifyDuration in minutes
-serverSaveNotifyMessage = true
-serverSaveNotifyDuration = 5
-serverSaveCleanMap = false
-serverSaveClose = false
-serverSaveShutdown = true
 
 -- Rates
 -- NOTE: rateExp is not used if you have enabled stages in data/XML/stages.xml
