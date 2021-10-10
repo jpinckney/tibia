@@ -35,7 +35,7 @@ maxPlayers = 0
 motd = "Welcome to Tibia!"
 onePlayerOnlinePerAccount = false
 allowClones = false
-serverName = "OTServBR-Global"
+serverName = "Forgotten"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -168,6 +168,9 @@ rateSkill = 50
 rateLoot = 3
 rateMagic = 25
 rateSpawn = 1
+
+-- Party EXP Share
+partyExpShareAlways = false
 
 -- Today regeneration condition over an loop every 1 second,
 -- so values which should regenerated less then 1 second
