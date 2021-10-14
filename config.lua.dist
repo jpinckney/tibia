@@ -179,7 +179,7 @@ rateHealthRegen = 1.0
 rateHealthRegenSpeed = 1.0
 rateManaRegen = 1.0
 rateManaRegenSpeed = 1.0
-rateSoulRegen = 1.0
+rateSoulRegen = 4.0
 rateSoulRegenSpeed = 1.0
 
 rateSpellCooldown = 1.0
