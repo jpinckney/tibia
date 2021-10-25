@@ -1,7 +1,5 @@
 # OTServ Vineyard - Private Server
 
-
-
 ## Project
 
 OTServ Vineyard - Private Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [Forgotten Server](https://github.com/otland/forgottenserver) project. To connect to the server and to take a stable experience, you can use our [own client](https://forums.otserv.com.br/index.php?/forums/topic/167933-otservbr-global-cliente-tibia-12/) and if you want to edit something, check our [customized tools](https://github.com/opentibiabr/tools).
@@ -10,10 +8,7 @@ You are subject to our code of conduct, read at [this link](https://github.com/o
 
 ### Getting **Started**
 
-**PLEASE REACH OUT TO THE DISCORD SERVER FOR INSTRUCTIONS ON HOW TO DOWNLOAD AND GET STARTED**
-
-**[Discord](https://discord.gg/hPYBtzwd)**
-
+**PLEASE REACH OUT FOR INSTRUCTIONS ON HOW TO DOWNLOAD AND GET STARTED**
 
 ### Issues
 
@@ -23,7 +18,6 @@ We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Glo
 
 Before [creating a pull request](https://github.com/opentibiabr/otservbr-global/pulls) please keep in mind:
 
-  * Do not send Pull Request changing the map, as we can't review the changes it's better to use our [Discord](https://discord.gg/hPYBtzwd) to talk about or send the map changes to the person responsible for updating it.
   * Focus on fixing only one thing, mixing too many things on the same Pull Request will make it harder to review, harder to test and if we need to revert the change it will remove other things together.
   * Follow the project indentation, if your editor support you can use the [editorconfig](https://editorconfig.org/) to automatic configure the indentation.
   * There are people that doesn't play the game on the official server, so explain your changes to help understand what are you changing and why.
@@ -41,3 +35,6 @@ Before [creating a pull request](https://github.com/opentibiabr/otservbr-global/
   * [otland/forgottenserver](https://github.com/otland/forgottenserver) and contributors
   * [saiyansking/optimized_forgottenserver](https://github.com/SaiyansKing/optimized_forgottenserver) and contributors
   * if we forget someone, we apologize by forgot you. but you know, **forgot**tenserver.
+
+  **NOTE**
+  * We are always looking for more players to come slay bosses and monsters with us. Reach out to find out how to come play with us!
