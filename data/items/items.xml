@@ -33671,7 +33671,7 @@
 		<attribute key="loottype" value="distance" />
 		<attribute key="shootType" value="gloothspear" />
 		<attribute key="range" value="4" />
-		<attribute key="weight" value="4000" />
+		<attribute key="weight" value="2600" />
 	</item>
 	<item id="23530" article="a" name="floating crate of turnips" />
 	<item id="23532" article="a" name="mootant armor rack">

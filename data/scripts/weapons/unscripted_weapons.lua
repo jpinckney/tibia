@@ -1662,7 +1662,7 @@ local weapons = {
 		type = WEAPON_DISTANCE,
 		level = 60,
 		unproperly = true,
-		breakChance = 1
+		breakChance = 2
 	}, -- glooth spear
 	{
 		itemId = 22421,
